@@ -29,15 +29,7 @@ Olá, você foi contratado para executar este projeto. É importante que você a
 
 function microondas(foodPosition, time) {
     const pipoca = 10, macarrao = 8, carne = 15, feijao = 12, brigadeiro = 8
-
-    const menu = `
-    1 - Pipoca – 10 segundos (padrão);\n
-    2 - Macarrão – 8 segundos (padrão);\n
-    3 - Carne – 15 segundos (padrão);\n
-    4 - Feijão – 12 segundos (padrão);\n
-    5 - Brigadeiro – 8 segundos (padrão);
-    `;
-
+    
     const queimou = "A comida queimou.";
     const insuficiente = "tempo insuficiente.";
     const mensagemErro = "Prato inexistente";
@@ -46,7 +38,7 @@ function microondas(foodPosition, time) {
 
     if(foodPosition === 1) {
         // "Prato pronto, bom apetite!!!"
-        if(time === pipoca && time < pipoca * 2) {
+        if(time >= pipoca && time <= pipoca * 2) {
             console.log(mensagemSucesso);
         // "A comida queimou."
         } else if(time > pipoca * 2 && time <= pipoca *3) {
@@ -59,7 +51,7 @@ function microondas(foodPosition, time) {
         }
     } else if(foodPosition === 2) {
         // "Prato pronto, bom apetite!!!"
-        if(time === macarrao && time < macarrao * 2) {
+        if(time >= macarrao && time <= macarrao * 2) {
             console.log(mensagemSucesso);
         // "A comida queimou."
         } else if(time > macarrao * 2 && time <= macarrao * 3) {
@@ -72,7 +64,7 @@ function microondas(foodPosition, time) {
         }
     } else if(foodPosition === 3) {
         // "Prato pronto, bom apetite!!!"
-        if(time === carne && time < carne * 2) {
+        if(time >= carne && time <= carne * 2) {
             console.log(mensagemSucesso);
         // "A comida queimou."
         } else if(time > carne * 2 && time <= carne *3) {
@@ -85,7 +77,7 @@ function microondas(foodPosition, time) {
         }
     } else if(foodPosition === 4) {
         // "Prato pronto, bom apetite!!!"
-        if(time === feijao && time < feijao * 2) {
+        if(time >= feijao && time <= feijao * 2) {
             console.log(mensagemSucesso);
         // "A comida queimou."
         } else if(time > feijao * 2 && time <= feijao *3) {
@@ -98,7 +90,7 @@ function microondas(foodPosition, time) {
         }
     } else if(foodPosition === 5) {
         // "Prato pronto, bom apetite!!!"
-        if(time === brigadeiro && time < brigadeiro * 2) {
+        if(time >= brigadeiro && time <= brigadeiro * 2) {
             console.log(mensagemSucesso);
         // "A comida queimou."
         } else if(time > brigadeiro * 2 && time <= brigadeiro *3) {
@@ -115,8 +107,31 @@ function microondas(foodPosition, time) {
 }
 
 
+// Passar o número do prato e tempo para a função
 
-// microondas(2, 7);
+const menu = `
+1 - Pipoca – 10 segundos (padrão);\n
+2 - Macarrão – 8 segundos (padrão);\n
+3 - Carne – 15 segundos (padrão);\n
+4 - Feijão – 12 segundos (padrão);\n
+5 - Brigadeiro – 8 segundos (padrão);
+`;
+
+console.log(menu);
+
+
+// ----------------------------- TESTES --------------------------------//
+// Prato inexistente
+microondas(0, 7);
+
+// Macarrão: Tempo insuficiente
+microondas(2, 7);
+
+// Carne: Bom apetite
 microondas(3, 17);
-// microondas(5, 10);
-// microondas(1, 20);
+
+// Feijão: kabumm!
+microondas(4, 38);
+
+// Pipoca: A comida queimou
+microondas(1, 22);
